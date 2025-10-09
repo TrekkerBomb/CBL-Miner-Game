@@ -7,6 +7,24 @@ import javax.swing.*;
  */
 class MapGeneration {
 
+    static int gridsizeY = 10;
+    static int gridsizeX = 20;
+
+    Block[][] blockMap = new Block[gridsizeX][gridsizeY];
+
+
+    /**
+     * .
+     */
+    MapGeneration() {
+
+        for (int i = 0; i < gridsizeX; i++) {
+            for (int j = 0; j < gridsizeY; j++) {
+                blockMap[i][j] = new Block(i, j); // i = y j = x
+            }
+        }
+    }
+
     class Block {
 
         Point position;
@@ -29,38 +47,13 @@ class MapGeneration {
         }
     }
 
-    class BlockMap {
-
-        int gridsizeY = 10;
-        int gridsizeX = 20;
-
-        Block[][] blockMap = new Block[gridsizeY][gridsizeX];
-
-
-        /**
-         * .
-         */
-        BlockMap() {
-
-            for (int i = 0; i < gridsizeY; i++) {
-                for (int j = 0; j < gridsizeX; j++) {
-                    blockMap[i][j] = new Block(j, i); // placeholder to test.
-                }
-            }
-        }
-
-        void run() {
-
-
-            Bockmap map = new Blockmap();
-        }
-
-    }
-
-
     public static void main(String[] args) {
         MapGeneration map = new MapGeneration();
-        new map.BlockMap();
-    }
 
+        for (int i = 0; i < gridsizeX; i++) {
+            for (int j = 0; j < gridsizeY; j++) {
+                System.err.println();
+            }
+        }
+    }
  }

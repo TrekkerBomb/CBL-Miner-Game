@@ -11,23 +11,27 @@ class Window extends JPanel {
     
     @Override
     public void paintComponent(Graphics g) {
-        super.paintComponent(g); // wat doet g hier?
+        paintComponent(g);
     }
     
 }
 
 public class GameWindow {
 
-
+    JFrame gameWindow;
     Window window;
 
     void buildGUI() {
 
-        JFrame gameWindow = new JFrame("Game Window");
-
+        gameWindow = new JFrame("Game Window");
+        gameWindow.setSize(1280, 720);
+        gameWindow.setVisible(true);
         window = new Window();
         
     }
     
+    public static void main(String[] args) {
+        new GameWindow().buildGUI();
+    }
 
 }
