@@ -42,7 +42,7 @@ class MapGeneration {
 
         }
 
-            void drawBlock() {
+        void drawBlock() {
 
         }
     }
