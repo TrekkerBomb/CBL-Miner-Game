@@ -1,4 +1,4 @@
-package cblminergame.graphics;
+package testminergame.testgraphics;
 
 //version control
 

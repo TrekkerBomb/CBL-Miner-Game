@@ -1,4 +1,4 @@
-package cblminergame;
+package testminergame;
 import java.awt.*;
 
 
