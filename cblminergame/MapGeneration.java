@@ -1,5 +1,5 @@
+package cblminergame;
 import java.awt.*;
-import javax.swing.*;
 
 
 /**
