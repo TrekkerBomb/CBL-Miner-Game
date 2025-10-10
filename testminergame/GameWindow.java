@@ -1,4 +1,5 @@
 package testminergame;
+
 import java.awt.*;
 import javax.swing.*;
 
@@ -6,33 +7,36 @@ import javax.swing.*;
 /**
  * .
  */
-
-
-class Window extends JPanel {
+class GamePanel extends JPanel {
     
     @Override
     public void paintComponent(Graphics g) {
-        paintComponent(g);
+        super.paintComponent(g);
     }
     
 }
 
+/**
+ * Making of the gameWindow.
+ */
 public class GameWindow {
 
-    JFrame gameWindow;
-    Window window;
-
+    /**
+     * makes the GUI and the window.
+     */
     void buildGUI() {
 
-        gameWindow = new JFrame("Game Window");
-        gameWindow.setSize(1280, 720);
-        gameWindow.setVisible(true);
-        window = new Window();
-        
-    }
-    
-    public static void main(String[] args) {
-        new GameWindow().buildGUI();
-    }
 
+        JFrame gameWindow;
+        
+        GamePanel gameScreen = new GamePanel();
+
+        gameWindow = new JFrame("Game Window");
+        gameWindow.setSize(1080, 720);
+        gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        gameWindow.setVisible(true);
+
+        
+        gameWindow.add(gameScreen);        
+    }
 }
