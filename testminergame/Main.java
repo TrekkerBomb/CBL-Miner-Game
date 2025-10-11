@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        new MapGeneration();
+        //Map map = new MapGeneration();
         new GameWindow().buildGUI();
     }
 }
