@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * class for updating the blockmap.
  */
-public class Map {
+public class MapGame {
 
     private int gridsizeX = 20;
     private int gridsizeY = 10;
@@ -32,7 +32,7 @@ public class Map {
     /**
      * Creates the map.
      */
-    Map() {
+    public MapGame() {
 
         this.blockMap = new Block[getGridsizeX()][getGridsizeY()];
 

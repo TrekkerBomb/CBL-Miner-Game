@@ -2,11 +2,19 @@ package testminergame;
 
 import java.awt.*;
 
-class Block {
+public class Block {
 
     Point position;
     int health;
     Color blockColor = Color.GRAY;
+
+    public Block(int idBlock) {
+
+    }
+    
+    public Block() {
+
+    }
     
 
     /**
@@ -20,7 +28,7 @@ class Block {
     /**
      * Draws the given block.
      * @param g graphics.
-     * @param block the block to draw.
+     * @param blockSize the size of the block to draw.
      */
     void drawBlock(Graphics g, int blockSize) {
         g.setColor(this.blockColor);

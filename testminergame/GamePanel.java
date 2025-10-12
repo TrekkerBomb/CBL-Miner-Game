@@ -8,10 +8,10 @@ import javax.swing.*;
  */
 public class GamePanel extends JPanel {
 
-    private Map map;
+    private MapGame map;
 
     public GamePanel() {
-        map = new Map();
+        map = new MapGame();
     }
 
     @Override
