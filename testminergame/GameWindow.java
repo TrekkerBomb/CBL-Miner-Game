@@ -1,12 +1,10 @@
 package testminergame;
 
-import java.awt.*;
+//import java.awt.*;
 import javax.swing.*;
 
 
-/**
- * .
- */
+/*  
 class GamePanel extends JPanel {
     
     private Map map;
@@ -28,7 +26,7 @@ class GamePanel extends JPanel {
         block1.drawBlock(g);
         block2.drawBlock(g);
 
-*/
+*//* 
         for (int i = 0; i < map.getGridsizeX(); i++) {
             for (int j = 0; j < map.getGridsizeY(); j++) {
 
@@ -39,6 +37,7 @@ class GamePanel extends JPanel {
     }
     
 }
+*/ 
 
 /**
  * Making of the gameWindow.
