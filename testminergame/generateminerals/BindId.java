@@ -2,6 +2,7 @@ package testminergame.generateminerals;
 
 import java.util.Map;
 import testminergame.Block;
+/* 
 
 //nothings works now, just here to show intend
 public class BindId {
@@ -11,5 +12,6 @@ public class BindId {
 
     Map<Integer, Block> mapId = new Map(idInteger, b);
 
-
 }
+
+*/

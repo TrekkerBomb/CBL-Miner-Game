@@ -26,12 +26,12 @@ public class Player implements KeyListener {
 
 
     public void movePlayerLeft(MapGame map) {
-        this.position.move(-map.getBlockSize(), 0);
+        this.position.move(position.x - map.getBlockSize(), 0);
     }
 
 
     public void movePlayerRight(MapGame map) {
-        this.position.move(map.getBlockSize(), 0);
+        this.position.move(position.x + map.getBlockSize(), 0);
     }
 
 
@@ -43,7 +43,7 @@ public class Player implements KeyListener {
         this.position.x = (map.getGridsizeX() * map.getBlockSize() / 2);
         this.position.y = 0;
 
-        this.Height = 5 * map.getBlockSize();
+        this.Height = 3 * map.getBlockSize();
         this.Width = 2 * map.getBlockSize();
     }
 }

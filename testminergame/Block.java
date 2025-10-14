@@ -8,10 +8,7 @@ public class Block {
     int health;
     Color blockColor = Color.GRAY;
 
-    public Block(int idBlock) {
-
-    }
-    
+  
     public Block() {
 
     }
