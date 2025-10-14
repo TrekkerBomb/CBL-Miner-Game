@@ -60,7 +60,6 @@ public class GameWindow {
         gameWindow.setSize(1080, 720);
         gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameWindow.setVisible(true);
-
                
     }
 }

@@ -30,10 +30,10 @@ public class Block {
      * @param g graphics.
      * @param blockSize the size of the block to draw.
      */
-    void drawBlock(Graphics g, int blockSize) {
+    void drawBlock(Graphics g, MapGame map) {
         g.setColor(this.blockColor);
-        g.fillRect(this.position.x, this.position.y, blockSize, blockSize);
+        g.fillRect(this.position.x, this.position.y, map.getBlockSize(), map.getBlockSize());
         g.setColor(Color.BLACK);
-        g.drawRect(this.position.x, this.position.y, blockSize, blockSize);
+        g.drawRect(this.position.x, this.position.y, map.getBlockSize(), map.getBlockSize());
     }
 }
