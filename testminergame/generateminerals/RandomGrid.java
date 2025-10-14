@@ -16,14 +16,14 @@ public class RandomGrid{
     RandomGrid(){
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
-                referenceGrid[i][j] = randomizeInt();
+                referenceGrid[i][j] = randomizeInt(); //make randomizer to give a random Blocks
             }
 
         }
     }
 
     int randomizeInt() {
-        int newId = randomGen.nextInt(16);
+        int newId = randomGen.nextInt(100);
         return newId;
     }
 }
