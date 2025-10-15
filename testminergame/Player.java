@@ -4,11 +4,14 @@ import java.awt.*;
 import java.awt.event.KeyListener;
 
 
-public class Player implements KeyListener {
+public class Player {
 
     Point position = new Point();
     int Width;
     int Height;
+
+
+    KeyListener keylistener;
 
 
     /**
@@ -24,6 +27,26 @@ public class Player implements KeyListener {
         g.drawRect((int) (this.position.x - 0.5 * Width), this.position.y, Width, Height);
     }
 
+
+    /**
+     * Moves the player on the basis of the input.
+     * @param input wasd.
+     */
+    public void movePlayer(char input) {
+
+        switch (input) {
+            case 'w': this.position.setLocation(position.x, position.y + 10);
+                break;
+            case 'a': this.position.setLocation(position.x - 10, position.y);
+                break;
+            case 's': this.position.setLocation(position.x, position.y - 10);
+                break;
+            case 'd': this.position.setLocation(position.x + 10, position.y + 10);
+                break;
+            default:
+                break;
+        }
+    }
 
     public void movePlayerLeft(MapGame map) {
         this.position.move(position.x - map.getBlockSize(), 0);
