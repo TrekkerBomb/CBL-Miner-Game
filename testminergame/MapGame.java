@@ -1,28 +1,29 @@
 package testminergame;
 
-import java.awt.*;
+import testminergame.generateminerals.RandomGrid;
 
 /**
  * class for updating the blockmap.
  */
 public class MapGame {
 
-    private int gridsizeX = 20;
-    private int gridsizeY = 10;
-    private final int blockSize = 50;
+    private static final int GRIDSIZEX = 20;
+    private static final int GRIDSIZEY = 10;
+    private static final int BLOCKSIZE = 50;
 
     private Block[][] blockMap;
+    private final RandomGrid ranGrid = new RandomGrid();
 
-    public int getGridsizeX() {
-        return this.gridsizeX;
+    public static int getGridsizeX() {
+        return GRIDSIZEX;
     }
 
-    public int getGridsizeY() {
-        return this.gridsizeY;
+    public static int getGridsizeY() {
+        return GRIDSIZEY;
     }
 
-    public int getBlockSize() {
-        return this.blockSize;
+    public static int getBlockSize() {
+        return BLOCKSIZE;
     }
     
     public Block[][] getBlockMap() {
@@ -34,14 +35,16 @@ public class MapGame {
      */
     public MapGame() {
 
-        this.blockMap = new Block[getGridsizeX()][getGridsizeY()];
+        //this.blockMap = new Block[getGridsizeX()][getGridsizeY()];
+        this.blockMap = ranGrid.giveReference();
 
+        /*
         for (int i = 0; i < getGridsizeX(); i++) {
             for (int j = 0; j < getGridsizeY(); j++) {
                 blockMap[i][j] = new Block(new Point(this.blockSize * i, this.blockSize * j));
             }
         }
-
+        */
         //blockMap[1][1] = new Block(new Point(1000, 300));
 
 

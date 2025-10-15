@@ -1,29 +1,35 @@
 package testminergame.generateminerals;
 
-import java.util.Random;
+import java.awt.Point;
+import testminergame.Block;
 import testminergame.MapGame;
 
-public class RandomGrid{
-    MapGame map = new MapGame();
+/**
+ * Generates a Block grid filled with randomly selected Blocks.
+ */
+public class RandomGrid {
+    
+    private final RandomBlock ranBlock = new RandomBlock();
+    private final int xCoord = MapGame.getGridsizeX();
+    private final int yCoord = MapGame.getGridsizeY();
+    private Block[][] referenceGrid;
 
-    private final int x = map.getGridsizeX();
-    private final int y = map.getGridsizeY();
-    private final long seed = 12341234;
-    int[][] referenceGrid = new int[x][y];
-
-    Random randomGen = new Random(seed);
-
-    RandomGrid(){
-        for (int i = 0; i < x; i++) {
-            for (int j = 0; j < y; j++) {
-                referenceGrid[i][j] = randomizeInt(); //make randomizer to give a random Blocks
+    /**
+     * Fills in the grid with random blocks.
+     */
+    public RandomGrid() {
+        this.referenceGrid = new Block[xCoord][yCoord];
+        final int bSize = MapGame.getBlockSize();
+        
+        for (int i = 0; i < xCoord; i++) {
+            for (int j = 0; j < yCoord; j++) {
+                Point newPos = new Point(bSize * i, bSize * j); 
+                this.referenceGrid[i][j] = ranBlock.giveBlock(newPos);
             }
-
         }
     }
 
-    int randomizeInt() {
-        int newId = randomGen.nextInt(100);
-        return newId;
+    public Block[][] giveReference() {
+        return this.referenceGrid;
     }
 }

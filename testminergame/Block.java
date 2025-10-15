@@ -4,16 +4,15 @@ import java.awt.*;
 
 public class Block {
 
-    Point position;
-    int health;
-    Color blockColor = Color.GRAY;
-
+    public Point position;
+    public int health;
+    public Color blockColor = Color.GRAY;
+    public boolean rockSolid;
+    public int blockPayout;
   
     public Block() {
-
     }
     
-
     /**
      * Constructor to create the block.
      * @param position position in the grid.
