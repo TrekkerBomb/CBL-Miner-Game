@@ -12,7 +12,7 @@ public class Player implements KeyListener {
 
 
     /**
-     * Draw the player
+     * Draw the player.
      * @param g
      * @param map
      */
