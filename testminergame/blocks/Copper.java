@@ -7,7 +7,7 @@ import testminergame.Block;
 /**
  * Subclass of Block to define Copper Blocks.
  */
-public class Copper extends Block{
+public class Copper extends Block {
     Color copperColor = new Color(79, 216, 189);
 
     /**

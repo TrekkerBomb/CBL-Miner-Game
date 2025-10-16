@@ -7,7 +7,7 @@ import testminergame.Block;
 /**
  * Subclass of Block to define Diamond Blocks.
  */
-public class Diamond extends Block{
+public class Diamond extends Block {
     Color diamondColor = new Color(0, 255, 255);
     
     /**

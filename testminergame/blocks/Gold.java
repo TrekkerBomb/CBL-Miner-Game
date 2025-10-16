@@ -7,7 +7,7 @@ import testminergame.Block;
 /**
  * Subclass of Block to define Gold Blocks.
  */
-public class Gold extends Block{
+public class Gold extends Block {
     Color goldColor = new Color(255, 204, 0);
  
     /**

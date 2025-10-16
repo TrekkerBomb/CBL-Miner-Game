@@ -2,25 +2,23 @@ package testminergame;
 
 import java.awt.*;
 
+/**
+ * The superclass of all Block subclasses.
+ * This is used in a Factory class to return objects of its subclasses.
+ * 
+ * Contains all instance variables needed for its subclasses.
+ */
 public class Block {
 
     public Point position;
     public int health;
-    public Color blockColor = Color.GRAY;
+    public Color blockColor;
     public boolean rockSolid;
     public int blockPayout;
   
     public Block() {
     }
     
-    /**
-     * Constructor to create the block.
-     * @param position position in the grid.
-     */
-    Block(Point position) {
-        this.position = position;
-    }
-
     /**
      * Draws the given block.
      * @param g graphics.

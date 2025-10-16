@@ -3,42 +3,6 @@ package testminergame;
 //import java.awt.*;
 import javax.swing.*;
 
-
-/*  
-class GamePanel extends JPanel {
-    
-    private Map map;
-
-    public GamePanel() {
-        map = new Map();
-    }
-
-    @Override
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        
-        /* 
-        Block block1 = map.getBlockMap()[0][0];
-        Block block2 = map.getBlockMap()[1][1];
-
-
-
-        block1.drawBlock(g);
-        block2.drawBlock(g);
-
-*//* 
-        for (int i = 0; i < map.getGridsizeX(); i++) {
-            for (int j = 0; j < map.getGridsizeY(); j++) {
-
-                map.getBlockMap()[i][j].drawBlock(g, map.getBlockSize());
-            }
-        }
-        
-    }
-    
-}
-*/ 
-
 /**
  * Making of the gameWindow.
  */
@@ -51,6 +15,9 @@ public class GameWindow {
     JFrame gameWindow;
     GamePanel gameScreen;
 
+    /**
+     * Builds the GUI by opening a window using Swing.
+     */
     void buildGUI() {
         
         gameScreen = new GamePanel();
