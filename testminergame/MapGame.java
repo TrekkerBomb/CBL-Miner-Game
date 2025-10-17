@@ -3,7 +3,7 @@ package testminergame;
 import java.awt.*;
 
 /**
- * class for updating the blockmap.
+ * Class for updating the blockmap.
  */
 public class MapGame {
 
@@ -41,9 +41,5 @@ public class MapGame {
                 blockMap[i][j] = new Block(new Point(this.blockSize * i, this.blockSize * j));
             }
         }
-
-        //blockMap[1][1] = new Block(new Point(1000, 300));
-
-
     }
 }

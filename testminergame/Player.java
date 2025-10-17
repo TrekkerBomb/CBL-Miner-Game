@@ -1,31 +1,32 @@
 package testminergame;
 
 import java.awt.*;
-import java.awt.event.KeyListener;
 
 
+/**
+ * This class has everything the player does.
+ */
 public class Player {
 
     Point position = new Point();
-    int Width;
-    int Height;
-
-
-    KeyListener keylistener;
-
+    int width;
+    int height;
 
     /**
-     * Draw the player
-     * @param g
-     * @param map
+     * Draw the player.
+     * @param g graphics.
+     * @param map the map this is used to get the information where the player is.
      */
     public void drawPlayer(Graphics g, MapGame map) {
 
         g.setColor(Color.YELLOW);
-        g.fillRect((int) (this.position.x - 0.5 * Width), this.position.y, Width, Height);
+        g.fillRect((this.position.x - width / 2), this.position.y, width, height);
         g.setColor(Color.BLACK);
-        g.drawRect((int) (this.position.x - 0.5 * Width), this.position.y, Width, Height);
+        g.drawRect((this.position.x - width / 2), this.position.y, width, height);
     }
+
+
+
 
 
     /**
@@ -35,26 +36,17 @@ public class Player {
     public void movePlayer(char input) {
 
         switch (input) {
-            case 'w': this.position.setLocation(position.x, position.y + 10);
+            case 'w': this.position.setLocation(position.x, position.y - 10);
                 break;
             case 'a': this.position.setLocation(position.x - 10, position.y);
                 break;
-            case 's': this.position.setLocation(position.x, position.y - 10);
+            case 's': this.position.setLocation(position.x, position.y + 10);
                 break;
-            case 'd': this.position.setLocation(position.x + 10, position.y + 10);
+            case 'd': this.position.setLocation(position.x + 10, position.y);
                 break;
             default:
                 break;
         }
-    }
-
-    public void movePlayerLeft(MapGame map) {
-        this.position.move(position.x - map.getBlockSize(), 0);
-    }
-
-
-    public void movePlayerRight(MapGame map) {
-        this.position.move(position.x + map.getBlockSize(), 0);
     }
 
 
@@ -66,7 +58,7 @@ public class Player {
         this.position.x = (map.getGridsizeX() * map.getBlockSize() / 2);
         this.position.y = 0;
 
-        this.Height = 3 * map.getBlockSize();
-        this.Width = 2 * map.getBlockSize();
+        this.height = 3 * map.getBlockSize();
+        this.width = 2 * map.getBlockSize();
     }
 }

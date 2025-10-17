@@ -3,7 +3,7 @@ package testminergame.generateminerals;
 import java.util.Random;
 import testminergame.MapGame;
 
-public class RandomGrid{
+public class RandomGrid {
     MapGame map = new MapGame();
 
     private final int x = map.getGridsizeX();
@@ -13,7 +13,7 @@ public class RandomGrid{
 
     Random randomGen = new Random(seed);
 
-    RandomGrid(){
+    RandomGrid() {
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 referenceGrid[i][j] = randomizeInt();

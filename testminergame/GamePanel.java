@@ -3,13 +3,7 @@ package testminergame;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import javax.swing.Timer;
-
 import javax.swing.*;
-
-
-
-
 
 /**
  * .
@@ -18,17 +12,18 @@ public class GamePanel extends JPanel implements KeyListener {
 
     private MapGame map;
     private Player player;
-    private Timer timer;
 
-    public GamePanel() {
+
+    /**
+     * This is the panel where all the drawing hapens.
+     * @param map the map.
+     * @param player the player.
+     */
+    public GamePanel(MapGame map, Player player) {
         
-        map = new MapGame();
-        player = new Player(map);
-
-        this.timer = new Timer(16, this);
-        timer.start();
-
-        this.setFocusable(true);
+        this.map = map;
+        this.player = player;
+        setFocusable(true);
         this.addKeyListener(this);
     }
 
@@ -42,28 +37,30 @@ public class GamePanel extends JPanel implements KeyListener {
                 map.getBlockMap()[i][j].drawBlock(g, map);
             }
         }
-
         player.drawPlayer(g, map);
-    }
 
-    @Override
-    public void keyTyped(KeyEvent e) {
-        
-        player.movePlayer(e.getKeyChar());
-        
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        // TODO Auto-generated method stub
-        
+        if (e.getKeyChar() == 'w') {
+            player.movePlayer(e.getKeyChar());
+            System.out.println("w is pressed");
+        } else if (e.getKeyChar() ==  'a') {
+            player.movePlayer(e.getKeyChar());
+            System.out.println("a is pressed");
+        } else if (e.getKeyChar() ==  's') {
+            player.movePlayer(e.getKeyChar());
+            System.out.println("s is pressed");
+        } else if (e.getKeyChar() ==  'd') {
+            player.movePlayer(e.getKeyChar());
+            System.out.println("d is pressed");
+        }
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
-        // TODO Auto-generated method stub
-        
-    }
+    public void keyReleased(KeyEvent e) {}
 
-    
+    @Override
+    public void keyTyped(KeyEvent e) {}
 }
