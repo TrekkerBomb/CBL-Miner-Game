@@ -1,7 +1,9 @@
-package testminergame;
+package player;
 
 import java.awt.*;
 import java.awt.event.KeyListener;
+
+import testminergame.MapGame;
 
 
 public class Player implements KeyListener {

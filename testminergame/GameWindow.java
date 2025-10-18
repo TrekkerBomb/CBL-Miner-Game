@@ -4,45 +4,25 @@ package testminergame;
 import javax.swing.*;
 
 /**
- * Making of the gameWindow.
+ * Code for making the gameWindow.
  */
 public class GameWindow {
 
+    JFrame gameWindow;
+    GamePanel gameScreen;
+    
     /**
      * makes the GUI and the window.
      */
-
-    JFrame gameWindow;
-    GamePanel gameScreen;
-
-    /**
-     * Builds the GUI by opening a window using Swing.
-     */
-    void buildGUI() {
-        
-        gameScreen = new GamePanel();
-
+    public GameWindow(GamePanel gameScreen) {
+        this.gameScreen = gameScreen;
         gameWindow = new JFrame("Game Window");
         gameWindow.add(gameScreen); 
         gameWindow.setSize(1080, 720);
         gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         gameWindow.setVisible(true);
+        gameScreen.requestFocusInWindow();
                
     }
 }
-
-
-
-
-        /*
-
-        Block[][] drawableMap = map.getBlockMap();
-        for (int i = 0; i < map.getGridsizeX(); i++) {
-            for (int j = 0; j < map.getGridsizeY(); j++) {
-                block.drawBlock(g, drawableMap[i][j]);
-            }
-        }
-
-        map.mapUpdate(g, map.getBlockMap(), map.getGridsizeX(), map.getGridsizeY());
-
-         */
