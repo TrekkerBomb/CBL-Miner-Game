@@ -3,13 +3,10 @@ package testminergame;
 //import java.awt.*;
 import javax.swing.*;
 
-
-
 /**
  * Code for making the gameWindow.
  */
 public class GameWindow {
-
 
     JFrame gameWindow;
     GamePanel gameScreen;
