@@ -16,21 +16,22 @@ public class GameManager implements ActionListener {
 
 
     private Timer timer;
-    private MapGame map;
-    private Player player;
+    private MapGame currentMap;
+    private Player currentPlayer;
     private KeyInputHandler inputHandler;
     private GamePanel gameScreen;
+    private GameWindow gameW;
 
     /**
      * This constructor is calles when the game is started.
      */
     GameManager() {
 
-        this.map = new MapGame();
-        this.player = new Player(map);
-        this.gameScreen = new GamePanel(map, player);
+        this.currentMap = new MapGame();
+        this.currentPlayer = new Player();
+        this.gameScreen = new GamePanel(currentMap, currentPlayer);
         this.inputHandler = new KeyInputHandler();
-        new GameWindow(gameScreen);
+        this.gameW = new GameWindow(gameScreen);
 
         this.timer = new Timer(16, this);
         timer.start();
@@ -43,7 +44,7 @@ public class GameManager implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        player.movePlayer(inputHandler.getMovement());
+        currentPlayer.movePlayer(inputHandler.getMovement());
         gameScreen.repaint();
     }
 }

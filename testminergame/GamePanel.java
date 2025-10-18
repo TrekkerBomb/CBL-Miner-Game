@@ -31,16 +31,17 @@ public class GamePanel extends JPanel implements KeyListener {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         
-        for (int i = 0; i < map.getGridsizeX(); i++) {
-            for (int j = 0; j < map.getGridsizeY(); j++) {
+        for (int i = 0; i < MapGame.getGridsizeX(); i++) {
+            for (int j = 0; j < MapGame.getGridsizeY(); j++) {
 
-                map.getBlockMap()[i][j].drawBlock(g, map);
+                map.getBlockMap()[i][j].drawBlock(g);
             }
         }
         player.drawPlayer(g, map);
 
     }
 
+    /*
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyChar() == 'w') {
@@ -57,6 +58,7 @@ public class GamePanel extends JPanel implements KeyListener {
             System.out.println("d is pressed");
         }
     }
+    */
 
     @Override
     public void keyReleased(KeyEvent e) {}

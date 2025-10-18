@@ -47,13 +47,12 @@ public class Player {
 
     /**
      * Creating player on the specified position.
-     * @param map the map where the player is in.
      */
-    public Player(MapGame map) {
-        this.position.x = (map.getGridsizeX() * map.getBlockSize() / 2);
+    public Player() {
+        this.position.x = (MapGame.getGridsizeX() * MapGame.getBlockSize() / 2);
         this.position.y = 0;
 
-        this.height = 3 * map.getBlockSize();
-        this.width = 2 * map.getBlockSize();
+        this.height = 3 * MapGame.getBlockSize();
+        this.width = 2 * MapGame.getBlockSize();
     }
 }
