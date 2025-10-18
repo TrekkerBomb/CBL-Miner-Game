@@ -20,7 +20,6 @@ public class GameManager implements ActionListener {
     private Player currentPlayer;
     private KeyInputHandler inputHandler;
     private GamePanel gameScreen;
-    private GameWindow gameW;
 
     /**
      * This constructor is calles when the game is started.
@@ -31,7 +30,8 @@ public class GameManager implements ActionListener {
         this.currentPlayer = new Player();
         this.gameScreen = new GamePanel(currentMap, currentPlayer);
         this.inputHandler = new KeyInputHandler();
-        this.gameW = new GameWindow(gameScreen);
+        gameScreen.addKeyListener(inputHandler);
+        new GameWindow(gameScreen);
 
         this.timer = new Timer(16, this);
         timer.start();

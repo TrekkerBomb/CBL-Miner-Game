@@ -1,15 +1,13 @@
 package testminergame;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import javax.swing.*;
 import testminergame.player.Player;
 
 /**
  * This is the class for the mainpanel. This class handles the graphics.
  */
-public class GamePanel extends JPanel implements KeyListener {
+public class GamePanel extends JPanel {
 
     private MapGame map;
     private Player player;
@@ -24,7 +22,7 @@ public class GamePanel extends JPanel implements KeyListener {
         this.map = map;
         this.player = player;
         setFocusable(true);
-        this.addKeyListener(this);
+
     }
 
     @Override
@@ -40,29 +38,4 @@ public class GamePanel extends JPanel implements KeyListener {
         player.drawPlayer(g, map);
 
     }
-
-    /*
-    @Override
-    public void keyPressed(KeyEvent e) {
-        if (e.getKeyChar() == 'w') {
-            player.movePlayer(e.getKeyChar());
-            System.out.println("w is pressed");
-        } else if (e.getKeyChar() ==  'a') {
-            player.movePlayer(e.getKeyChar());
-            System.out.println("a is pressed");
-        } else if (e.getKeyChar() ==  's') {
-            player.movePlayer(e.getKeyChar());
-            System.out.println("s is pressed");
-        } else if (e.getKeyChar() ==  'd') {
-            player.movePlayer(e.getKeyChar());
-            System.out.println("d is pressed");
-        }
-    }
-    */
-
-    @Override
-    public void keyReleased(KeyEvent e) {}
-
-    @Override
-    public void keyTyped(KeyEvent e) {}
 }

@@ -3,7 +3,7 @@ package testminergame;
 import testminergame.generateminerals.RandomGrid;
 
 /**
- * class for updating the blockmap.
+ * Class for updating the blockmap.
  */
 public class MapGame {
 
@@ -31,22 +31,9 @@ public class MapGame {
     }
 
     /**
-     * Creates the map.
+     * Creates the random map.
      */
     public MapGame() {
-
-        //this.blockMap = new Block[getGridsizeX()][getGridsizeY()];
         this.blockMap = ranGrid.giveReference();
-
-        /*
-        for (int i = 0; i < getGridsizeX(); i++) {
-            for (int j = 0; j < getGridsizeY(); j++) {
-                blockMap[i][j] = new Block(new Point(this.blockSize * i, this.blockSize * j));
-            }
-        }
-        */
-        //blockMap[1][1] = new Block(new Point(1000, 300));
-
-
     }
 }
