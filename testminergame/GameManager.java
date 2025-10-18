@@ -3,6 +3,11 @@ package testminergame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
+import testminergame.player.KeyInputHandler;
+import testminergame.player.Player;
+
+
+
 
 /**
  * This class has everything to start the game.
@@ -38,7 +43,7 @@ public class GameManager implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        player.movePlayer(inputHandler.movement);
+        player.movePlayer(inputHandler.getMovement());
         gameScreen.repaint();
     }
 }

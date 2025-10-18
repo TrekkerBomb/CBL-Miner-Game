@@ -4,15 +4,15 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.*;
+import testminergame.player.Player;
 
 /**
- * .
+ * This is the class for the mainpanel. This class handles the graphics.
  */
 public class GamePanel extends JPanel implements KeyListener {
 
     private MapGame map;
     private Player player;
-
 
     /**
      * This is the panel where all the drawing hapens.

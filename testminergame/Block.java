@@ -8,12 +8,11 @@ public class Block {
     int health;
     Color blockColor = Color.GRAY;
 
-  
+
     public Block() {
 
     }
     
-
     /**
      * Constructor to create the block.
      * @param position position in the grid.

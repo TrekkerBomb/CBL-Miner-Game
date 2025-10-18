@@ -1,7 +1,7 @@
-package testminergame;
+package testminergame.player;
 
 import java.awt.*;
-
+import testminergame.MapGame;
 
 /**
  * This class has everything the player does.
@@ -25,10 +25,6 @@ public class Player {
         g.drawRect((this.position.x - width / 2), this.position.y, width, height);
     }
 
-
-
-
-
     /**
      * Moves the player on the basis of the input.
      * @param input wasd.
@@ -49,12 +45,11 @@ public class Player {
         }
     }
 
-
     /**
      * Creating player on the specified position.
      * @param map the map where the player is in.
      */
-    Player(MapGame map) {
+    public Player(MapGame map) {
         this.position.x = (map.getGridsizeX() * map.getBlockSize() / 2);
         this.position.y = 0;
 
