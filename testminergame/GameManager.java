@@ -7,6 +7,7 @@ import testminergame.mining.BlockDestroyer;
 import testminergame.mining.MouseInputHandler;
 import testminergame.player.KeyInputHandler;
 import testminergame.player.Player;
+import testminergame.sellmenu.Buttons;
 
 
 /**
@@ -22,6 +23,7 @@ public class GameManager implements ActionListener {
     private MouseInputHandler mouseInputH;
     private BlockDestroyer blockDest;
     private GamePanel gameScreen;
+    private Buttons menuButtons;
 
     /**
      * This constructor is calles when the game is started.
@@ -37,7 +39,9 @@ public class GameManager implements ActionListener {
         this.gameScreen = new GamePanel(currentMap, currentPlayer);
         gameScreen.addMouseListener(mouseInputH);
         gameScreen.addKeyListener(inputHandler);
-        new GameWindow(gameScreen);
+        GameWindow gameWin = new GameWindow(gameScreen);
+
+        this.menuButtons = new Buttons(gameWin.gameWindow);
 
         this.timer = new Timer(16, this);
         timer.start();
