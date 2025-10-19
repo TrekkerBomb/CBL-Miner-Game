@@ -31,6 +31,16 @@ public class MapGame {
     }
 
     /**
+     * Sets the block in the blockMap.
+     * @param newBlock The block to be set.
+     */
+    public void setBlockMap(Block newBlock) {
+        int xCoordinate = newBlock.position.x / MapGame.BLOCKSIZE;
+        int yCoordinate = newBlock.position.y / MapGame.BLOCKSIZE;
+        this.blockMap[xCoordinate][yCoordinate] = newBlock;
+    }
+
+    /**
      * Creates the random map.
      */
     public MapGame() {
