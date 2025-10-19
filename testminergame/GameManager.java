@@ -3,10 +3,10 @@ package testminergame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
+import testminergame.mining.BlockDestroyer;
+import testminergame.mining.MouseInputHandler;
 import testminergame.player.KeyInputHandler;
 import testminergame.player.Player;
-
-
 
 
 /**
@@ -19,6 +19,8 @@ public class GameManager implements ActionListener {
     private MapGame currentMap;
     private Player currentPlayer;
     private KeyInputHandler inputHandler;
+    private MouseInputHandler mouseInputH;
+    private BlockDestroyer blockDest;
     private GamePanel gameScreen;
 
     /**
@@ -28,8 +30,12 @@ public class GameManager implements ActionListener {
 
         this.currentMap = new MapGame();
         this.currentPlayer = new Player();
-        this.gameScreen = new GamePanel(currentMap, currentPlayer);
         this.inputHandler = new KeyInputHandler();
+        this.mouseInputH = new MouseInputHandler();
+        this.blockDest = new BlockDestroyer();
+
+        this.gameScreen = new GamePanel(currentMap, currentPlayer);
+        gameScreen.addMouseListener(mouseInputH);
         gameScreen.addKeyListener(inputHandler);
         new GameWindow(gameScreen);
 
@@ -45,6 +51,9 @@ public class GameManager implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         currentPlayer.movePlayer(inputHandler.getMovement());
+
+        blockDest.damageBlock(currentMap, currentPlayer, mouseInputH);
+
         gameScreen.repaint();
     }
 }

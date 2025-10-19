@@ -16,7 +16,8 @@ public class Block {
     public boolean rockSolid;
     public int blockPayout;
   
-    public Block() {
+    public void decreaseHealth(int damage) {
+        this.health = health -= damage;
     }
     
     /**

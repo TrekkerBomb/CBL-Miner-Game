@@ -9,20 +9,19 @@ import testminergame.player.Player;
  */
 public class GamePanel extends JPanel {
 
-    private MapGame map;
-    private Player player;
+    private MapGame currentMap;
+    private Player currentPlayer;
 
     /**
      * This is the panel where all the drawing hapens.
-     * @param map the map.
-     * @param player the player.
+     * @param currentMap the map.
+     * @param currentPlayer the player.
      */
-    public GamePanel(MapGame map, Player player) {
+    public GamePanel(MapGame currentMap, Player currentPlayer) {
         
-        this.map = map;
-        this.player = player;
+        this.currentMap = currentMap;
+        this.currentPlayer = currentPlayer;
         setFocusable(true);
-
     }
 
     @Override
@@ -32,10 +31,10 @@ public class GamePanel extends JPanel {
         for (int i = 0; i < MapGame.getGridsizeX(); i++) {
             for (int j = 0; j < MapGame.getGridsizeY(); j++) {
 
-                map.getBlockMap()[i][j].drawBlock(g);
+                currentMap.getBlockMap()[i][j].drawBlock(g);
             }
         }
-        player.drawPlayer(g, map);
-
+        currentPlayer.drawPlayer(g, currentMap);
+        
     }
 }
