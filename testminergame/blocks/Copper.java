@@ -20,5 +20,6 @@ public class Copper extends Block {
         this.blockColor = copperColor;
         this.health = 6;
         this.blockPayout = 5;
+        this.blockKey = "Copper";
     }
 }

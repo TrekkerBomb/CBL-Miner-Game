@@ -20,5 +20,6 @@ public class Platinum extends Block {
         this.blockColor = platinumColor;
         this.health = 25;
         this.blockPayout = 100;
+        this.blockKey = "Platinum";
     }
 }
