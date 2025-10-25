@@ -29,7 +29,7 @@ public class RandomBlock {
     }
         
     /**
-     * Determines which block to give.
+     * Determines which block to give. This is a FACTORY PATERN.
      * @param position position of the block in the grid.
      * @return a Block object of the right subclass.
      */

@@ -8,11 +8,11 @@ import testminergame.MapGame;
  */
 public class Player {
 
-    Point position = new Point();
+    Point position = MapGame.getStartPoint();
+    int movementSpeed = 10;
     int reach = 100;
     int width;
     int height;
-
     Point damageCenter = new Point(position.x, position.y);
 
     /**
@@ -40,20 +40,29 @@ public class Player {
      * Moves the player on the basis of the input.
      * @param input wasd.
      */
-    public void movePlayer(char input) {
+    public void movePlayer(char input, MapGame map) {
 
+        int newXPosition;
+        int newYPosition;
         switch (input) {
-            case 'w': this.position.setLocation(position.x, position.y - 10);
+            case 'w': 
+                newYPosition = position.y - MovementRestrictions.upRestriction(this, map);
+                this.position.setLocation(position.x, position.y - newYPosition);
                 break;
-            case 'a': this.position.setLocation(position.x - 10, position.y);
+            case 'a': 
+                newXPosition = position.x - MovementRestrictions.leftRestriction(this, map);
+                this.position.setLocation(newXPosition, position.y);
                 break;
-            case 's': this.position.setLocation(position.x, position.y + 10);
+            case 's': this.position.setLocation(position.x, position.y + movementSpeed);
                 break;
-            case 'd': this.position.setLocation(position.x + 10, position.y);
+            case 'd': 
+                newXPosition = position.x + MovementRestrictions.rightRestriction(this, map);
+                this.position.setLocation(newXPosition, position.y);
                 break;
             default:
                 break;
         }
+
         //Move damageCenter after player movement.
         this.damageCenter.setLocation(position.x, position.y - 0.5 * height);
     }
