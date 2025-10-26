@@ -22,6 +22,7 @@ public class Inventory {
         listedInv.put(BlockID.PLATINUMID, 0);
         listedInv.put(BlockID.STONEID, 0);
         listedInv.put("Money", 0);
+        listedInv.put("Tool", 3);
     }
 
     public void put(String str, int key) {

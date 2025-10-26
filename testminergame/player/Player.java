@@ -8,10 +8,10 @@ import testminergame.MapGame;
  */
 public class Player {
 
-    Point position = new Point();
-    int reach = 100;
-    int width;
-    int height;
+    private Point position = new Point();
+    private int reach = 100;
+    private int width;
+    private int height;
 
     Point damageCenter = new Point(position.x, position.y);
 

@@ -18,7 +18,7 @@ public class Platinum extends Block {
         this.position = position;
         this.rockSolid = true;
         this.blockColor = platinumColor;
-        this.health = 25;
+        this.health = 500;
         this.blockPayout = 100;
         this.blockKey = BlockID.PLATINUMID;
     }

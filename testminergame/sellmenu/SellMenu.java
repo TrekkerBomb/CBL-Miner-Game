@@ -17,6 +17,7 @@ public class SellMenu extends JPanel {
     JButton platinumB;
     JButton stoneB;
     JButton statsB;
+    JButton toolB;
 
     /**
      * Initializes the menu.
@@ -84,10 +85,17 @@ public class SellMenu extends JPanel {
         this.statsB = new JButton("Check your performance");
         g.gridx = 1;
         g.gridy = 5;
-        g.gridheight = 10;
         g.gridwidth = 3;
         g.fill = GridBagConstraints.HORIZONTAL;
         this.add(this.statsB, g);
         SellResponse.setStatusButton(this.statsB, inv);
+
+        this.toolB = new JButton("Upgrade your Tool!");
+        g.gridx = 1;
+        g.gridy = 6;
+        g.gridwidth = 3;
+        g.fill = GridBagConstraints.HORIZONTAL;
+        this.add(this.toolB, g);
+        SellResponse.upgradeButton(this.toolB, inv);
     }
 }

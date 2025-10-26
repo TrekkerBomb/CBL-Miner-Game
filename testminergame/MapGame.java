@@ -7,8 +7,8 @@ import testminergame.generateminerals.RandomGrid;
  */
 public class MapGame {
 
-    private static final int GRIDSIZEX = 20;
-    private static final int GRIDSIZEY = 10;
+    private static final int GRIDSIZEX = 22;
+    private static final int GRIDSIZEY = 15;
     private static final int BLOCKSIZE = 50;
 
     private Block[][] blockMap;

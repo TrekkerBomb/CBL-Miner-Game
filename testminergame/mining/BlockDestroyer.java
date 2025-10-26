@@ -13,7 +13,7 @@ import testminergame.player.Player;
 public class BlockDestroyer {
 
     // this tooldamage is temporary
-    int toolDamage = 3;
+    int toolDamage;
     
     /**
      * This function deals damage to the block.
@@ -21,7 +21,7 @@ public class BlockDestroyer {
      * @param mInputH used to get the point to destroy the block.
      */
     public void damageBlock(MapGame map, Player cPlayer, MouseInputHandler mInputH, Inventory inv) {
-
+        this.toolDamage = inv.getValue("Tool");
 
         //code to get mouse position.
         int blockSize = MapGame.getBlockSize();
@@ -47,7 +47,7 @@ public class BlockDestroyer {
         if (mInputH.allowDestroy && mInputH.getMousePoint() != null) {
 
             //code to damage the selected block and destroy when health <= 0.
-            map.getBlockMap()[pointInGrid.x][pointInGrid.y].decreaseHealth(toolDamage);
+            map.getBlockMap()[pointInGrid.x][pointInGrid.y].decreaseHealth(this.toolDamage);
             System.out.println(map.getBlockMap()[pointInGrid.x][pointInGrid.y].health);
 
             if (map.getBlockMap()[pointInGrid.x][pointInGrid.y].health <= 0) {

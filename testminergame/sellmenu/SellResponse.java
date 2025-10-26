@@ -43,9 +43,37 @@ public class SellResponse {
         statusButton.addActionListener((ActionEvent e) -> {
             int valM = inv.getValue(keyM);
             int valAir = inv.getValue(keyAir);
-            String message = "You have " + valM + "to spend. \n You have pointlessly mined "
+            String message = "You have €" + valM + " to spend. \n You have pointlessly mined "
                 + valAir + " times"; 
             JOptionPane.showMessageDialog(null, message, "Status", 1);
+        });
+    }
+
+    /**
+     * Upgrades your tool.
+     * @param upgradeB A button to upgrade in SellMenu.
+     * @param inv the global 
+     */
+    public static void upgradeButton(JButton upgradeB, Inventory inv) {
+        String keyM = "Money";
+        String keyT = "Tool";
+
+        upgradeB.addActionListener((ActionEvent e) -> {
+            int valM = inv.getValue(keyM);
+            int newTool = (int) valM / 10;
+
+            if (newTool > 0) {
+                inv.put(keyT, inv.getValue(keyT) + newTool);
+                inv.put(keyM, 0);
+            
+                String message = "Your mining speed has been upgraded. \n Now you mine with " 
+                    + newTool + " more damage!";
+                JOptionPane.showMessageDialog(null, message, "Status", 1);
+            } else {
+                String message = "You don't have enough cash, please dig some more!";
+                JOptionPane.showMessageDialog(null, message, "Status", 1);
+            }
+            
         });
     }
 }

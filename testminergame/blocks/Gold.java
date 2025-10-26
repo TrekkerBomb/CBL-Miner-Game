@@ -18,7 +18,7 @@ public class Gold extends Block {
         this.position = position;
         this.rockSolid = true;
         this.blockColor = goldColor;
-        this.health = 15;
+        this.health = 150;
         this.blockPayout = 25;
         this.blockKey = BlockID.GOLDID;
     }
