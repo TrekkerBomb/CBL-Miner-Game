@@ -13,7 +13,7 @@ import testminergame.player.Player;
 public class BlockDestroyer {
 
     // this tooldamage is temporary
-    int toolDamage = 3;
+    int toolDamage = 100;
     
     /**
      * This function deals damage to the block.
