@@ -15,11 +15,12 @@ public class MapGame {
     private static final int GRIDSIZEX = 20;
     private static final int GRIDSIZEY = 10;
     private static final int BLOCKSIZE = 50;
+    private static final int STARTDEPT = 2;
 
     private Block[][] blockMap;
     private final RandomGrid ranGrid = new RandomGrid();
 
-    static Point startPoint = new Point((int) GRIDSIZEX / 2, 4);
+    static Point startPoint = new Point((int) GRIDSIZEX / 2, 4 + STARTDEPT);
 
     public static int getGridsizeX() {
         return GRIDSIZEX;
@@ -42,6 +43,10 @@ public class MapGame {
         return startPoint;
     }
 
+    public static int getStartDept() {
+        return STARTDEPT;
+    }
+
     /**
      * Sets the block in the blockMap.
      * @param newBlock The block to be set.
@@ -55,7 +60,6 @@ public class MapGame {
     private void makeStart() {
 
         boolean[][] setAir = new boolean[4][6];
-
         for (boolean[] row : setAir) {
             Arrays.fill(row, true);
         }
@@ -67,7 +71,7 @@ public class MapGame {
             for (int j = 0; j < 6; j++) {
                 if (setAir[i][j]) {
                     int xGrid = startPoint.x - 3 + j;
-                    int yGrid = startPoint.y - 4 + i;
+                    int yGrid = startPoint.y - 4 + i + STARTDEPT;
                     Point gridPoint = new Point(xGrid * BLOCKSIZE, yGrid * BLOCKSIZE);
                     this.setBlockMap(new Air(gridPoint));
                 }

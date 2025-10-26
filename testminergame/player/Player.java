@@ -10,10 +10,12 @@ public class Player {
 
     Point position = MapGame.getStartPoint();
     int movementSpeed = 10;
+    int jumpspeed = 10;
     int reach = 100;
     int width;
     int height;
     Point damageCenter = new Point(position.x, position.y);
+    boolean activeGravity = true;
 
     /**
      * Draw the player.
@@ -47,13 +49,11 @@ public class Player {
         switch (input) {
             case 'w': 
                 newYPosition = position.y - MovementRestrictions.upRestriction(this, map);
-                this.position.setLocation(position.x, position.y - newYPosition);
+                this.position.setLocation(position.x, newYPosition);
                 break;
             case 'a': 
                 newXPosition = position.x - MovementRestrictions.leftRestriction(this, map);
                 this.position.setLocation(newXPosition, position.y);
-                break;
-            case 's': this.position.setLocation(position.x, position.y + movementSpeed);
                 break;
             case 'd': 
                 newXPosition = position.x + MovementRestrictions.rightRestriction(this, map);
@@ -80,10 +80,12 @@ public class Player {
      */
     public Player() {
 
-        this.position.x = (MapGame.getGridsizeX() * MapGame.getBlockSize()) / 2;
-        this.position.y = height + 200;
-
-        this.height = 3 * MapGame.getBlockSize();
+        this.height = 130;
         this.width = 2 * MapGame.getBlockSize();
+
+        this.position.x = (MapGame.getGridsizeX() * MapGame.getBlockSize()) / 2;
+        this.position.y = height + MapGame.getBlockSize() * (3 + MapGame.getStartDept()) + 20;
+
+
     }
 }

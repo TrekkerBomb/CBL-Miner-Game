@@ -9,11 +9,17 @@ import testminergame.MapGame;
  * Class for movement restrictions so the player cant walk trough solid blocks.
  */
 public class MovementRestrictions {
+
+    static int gravitySpeed = 3;
     
     public static int rightRestriction(Player player, MapGame map) {
 
         int xToCheck = player.position.x + player.width / 2;
         int xPosBlock = xToCheck + player.movementSpeed;
+
+        if (xPosBlock > MapGame.getBlockSize() * MapGame.getGridsizeX()) {
+            return MapGame.getBlockSize() * MapGame.getGridsizeX() - player.position.x;
+        }
         int xGridPosBlock = (int) xPosBlock / MapGame.getBlockSize();
 
         boolean allowedToMove = true;
@@ -65,16 +71,15 @@ public class MovementRestrictions {
         }
     }
 
-        public static int upRestriction(Player player, MapGame map) {
-
-        int yToCheck = player.position.y - player.height - player.movementSpeed;
-        int yPosBlock = yToCheck - player.movementSpeed;
+    public static int upRestriction(Player player, MapGame map) {
+        int yToCheck = player.position.y - player.height; // bovenkant van de speler
+        int yPosBlock = yToCheck - player.jumpspeed;
         int yGridPosBlock = (int) yPosBlock / MapGame.getBlockSize();
 
         boolean allowedToMove = true;
 
-        int startX = player.position.x - player.width / 2 + 1; // linkergrens
-        int stopX = player.position.y - player.height - 1; // rechtergrens
+        int startX = player.position.x - player.width / 2 + 1;  // linkergrens
+        int stopX = player.position.x + player.width / 2 - 1;   // rechtergrens
 
         for (int i = startX; i < stopX; i++) {
             int xPosBlock = i;
@@ -86,12 +91,44 @@ public class MovementRestrictions {
         }
 
         if (!allowedToMove) {
-            return yGridPosBlock * MapGame.getBlockSize() - yToCheck + MapGame.getBlockSize();
+            return (yGridPosBlock + 1) * MapGame.getBlockSize() - yToCheck;
         } else {
-            return player.movementSpeed;
+            return player.jumpspeed;
+        }
+    }  
+
+    public static void gravity(Player player, MapGame map) {
+
+        int yToCheck = player.position.y;
+        int yPosBlock = yToCheck + gravitySpeed;
+        int yGridPosBlock = (int) (yPosBlock / MapGame.getBlockSize());
+
+        boolean allowedToMoveL = true;
+        boolean allowedToMoveR = true;
+
+        int startX = player.position.x - player.width / 2 + 1; // linkergrens
+        int stopX = player.position.x + player.width / 2 - 1; // rechtergrens
+
+        for (int i = startX; i < player.position.x; i++) {
+            int xGridPosBlock = (int) (i / MapGame.getBlockSize());
+
+            if (map.getBlockMap()[xGridPosBlock][yGridPosBlock].rockSolid) {
+                allowedToMoveL = false;
+            }
+        }
+
+        for (int i = player.position.x; i < stopX; i++) {
+            int xGridPosBlock = (int) (i / MapGame.getBlockSize());
+
+            if (map.getBlockMap()[xGridPosBlock][yGridPosBlock].rockSolid) {
+                allowedToMoveR = false;
+            }
+        }
+
+        if (!allowedToMoveL || !allowedToMoveR) {
+            player.position.y =  yGridPosBlock * MapGame.getBlockSize();
+        } else {
+            player.position.y = player.position.y + gravitySpeed;
         }
     }
-
-
-         
 } 

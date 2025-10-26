@@ -6,6 +6,7 @@ import javax.swing.Timer;
 import testminergame.mining.BlockDestroyer;
 import testminergame.mining.MouseInputHandler;
 import testminergame.player.KeyInputHandler;
+import testminergame.player.MovementRestrictions;
 import testminergame.player.Player;
 
 
@@ -52,7 +53,9 @@ public class GameManager implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         currentPlayer.movePlayer(inputHandler.getMovement(), currentMap);
 
+
         blockDest.damageBlock(currentMap, currentPlayer, mouseInputH);
+        MovementRestrictions.gravity(currentPlayer, currentMap);
 
         gameScreen.repaint();
     }
