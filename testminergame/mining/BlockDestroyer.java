@@ -8,7 +8,7 @@ import testminergame.player.Player;
 
 
 /**
- * .
+ * Class to enable mining of a Block on the GameMap.
  */
 public class BlockDestroyer {
 

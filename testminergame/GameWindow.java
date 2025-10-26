@@ -1,6 +1,5 @@
 package testminergame;
 
-//import java.awt.*;
 import javax.swing.*;
 
 /**

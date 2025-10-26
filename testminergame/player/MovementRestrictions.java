@@ -1,16 +1,21 @@
 package testminergame.player;
 
-import java.awt.Point;
 import testminergame.MapGame;
 
 
 /**
- * Class for movement restrictions so the player cant walk trough solid blocks.
+ * Class for movement restrictions so the player cannot walk through solid blocks.
  */
 public class MovementRestrictions {
 
     static int gravitySpeed = 3;
     
+    /**
+     * Method used in restricting movement to the right direction.
+     * @param player The Player the user moves.
+     * @param map The map in which the player moves.
+     * @return the integer representing new horizontal position.
+     */
     public static int rightRestriction(Player player, MapGame map) {
 
         int xToCheck = player.position.x + player.width / 2;
@@ -47,7 +52,12 @@ public class MovementRestrictions {
         }
     }
 
-
+    /**
+     * Method used in restricting movement to the left direction.
+     * @param player The Player the user moves.
+     * @param map The map in which the player moves.
+     * @return the integer representing new horizontal position.
+     */
     public static int leftRestriction(Player player, MapGame map) {
 
         int xToCheck = player.position.x - player.width / 2;
@@ -80,6 +90,12 @@ public class MovementRestrictions {
         }
     }
 
+    /**
+     * Method used to restrict movement of the player in the upwards direction.
+     * @param player the Player which the user moves.
+     * @param map the map in which the player moves in.
+     * @return the integer representing new vertical position.
+     */
     public static int upRestriction(Player player, MapGame map) {
         int yToCheck = player.position.y - player.height; // bovenkant van de speler
         int yPosBlock = yToCheck - player.jumpspeed;
@@ -114,6 +130,11 @@ public class MovementRestrictions {
         }
     }  
 
+    /**
+     * Method to drop the player downwards if standing above Air Blocks.
+     * @param player The Player which the user moves.
+     * @param map The map in which the Player moves.
+     */
     public static void gravity(Player player, MapGame map) {
 
         int yToCheck = player.position.y;

@@ -11,7 +11,7 @@ public class Inventory {
     Map<String, Integer> listedInv = new HashMap<>(8);
     
     /**
-     * Initialize inventory with all block types.
+     * Initialize inventory with Money, Tool, and all block types.
      */
     public Inventory() {
         listedInv.put(BlockID.AIRID, 0);
