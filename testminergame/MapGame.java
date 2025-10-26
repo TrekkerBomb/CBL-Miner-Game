@@ -12,8 +12,8 @@ import testminergame.generateminerals.RandomGrid;
  */
 public class MapGame {
 
-    private static final int GRIDSIZEX = 20;
-    private static final int GRIDSIZEY = 10;
+    private static final int GRIDSIZEX = 30;
+    private static final int GRIDSIZEY = 20;
     private static final int BLOCKSIZE = 50;
     private static final int STARTDEPT = 2;
 

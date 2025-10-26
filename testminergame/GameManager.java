@@ -52,11 +52,8 @@ public class GameManager implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         currentPlayer.movePlayer(inputHandler.getMovement(), currentMap);
-
-
-        blockDest.damageBlock(currentMap, currentPlayer, mouseInputH);
+        blockDest.damageBlock(currentMap, currentPlayer, mouseInputH);       
         MovementRestrictions.gravity(currentPlayer, currentMap);
-
         gameScreen.repaint();
     }
 }

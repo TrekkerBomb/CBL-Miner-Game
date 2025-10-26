@@ -10,7 +10,7 @@ import testminergame.MapGame;
  */
 public class MovementRestrictions {
 
-    static int gravitySpeed = 3;
+    static int gravitySpeed = 5;
     
     public static int rightRestriction(Player player, MapGame map) {
 
