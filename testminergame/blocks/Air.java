@@ -8,7 +8,7 @@ import testminergame.Block;
  * Subclass of Block to define Air Blocks.
  */
 public class Air extends Block {
-    Color airColor = new Color(216, 229, 243);
+    Color airColor = new Color(216, 229, 243, 50);
 
     /**
      * Contructor for Air subclass.

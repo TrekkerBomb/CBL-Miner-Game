@@ -11,7 +11,4 @@ public class BlockID {
     public static final String GOLDID = "Gold";
     public static final String IRONID = "Iron";
     public static final String PLATINUMID = "Platinum";
-
-    public BlockID() {
-    }
 }

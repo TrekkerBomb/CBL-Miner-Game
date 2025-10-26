@@ -15,7 +15,7 @@ public class Player {
     int width;
     int height;
     Point damageCenter = new Point(position.x, position.y);
-    boolean activeGravity = true;
+    public boolean activeGravity = true;
 
     /**
      * Draw the player.

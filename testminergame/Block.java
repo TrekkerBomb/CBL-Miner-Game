@@ -30,7 +30,7 @@ public class Block {
         int blockSize = MapGame.getBlockSize();
         g.setColor(this.blockColor);
         g.fillRect(this.position.x, this.position.y, blockSize, blockSize);
-        g.setColor(Color.BLACK);
+        g.setColor(new Color(0, 0, 0, 125));
         g.drawRect(this.position.x, this.position.y, blockSize, blockSize);
     }
 }

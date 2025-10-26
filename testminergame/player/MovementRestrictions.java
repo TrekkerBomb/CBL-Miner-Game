@@ -1,7 +1,6 @@
 package testminergame.player;
 
 import java.awt.Point;
-
 import testminergame.MapGame;
 
 
@@ -10,7 +9,7 @@ import testminergame.MapGame;
  */
 public class MovementRestrictions {
 
-    static int gravitySpeed = 5;
+    static int gravitySpeed = 3;
     
     public static int rightRestriction(Player player, MapGame map) {
 

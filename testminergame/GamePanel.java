@@ -20,7 +20,8 @@ public class GamePanel extends JPanel {
     public GamePanel(MapGame currentMap, Player currentPlayer) {
         this.currentMap = currentMap;
         this.currentPlayer = currentPlayer;
-        this.setBounds(0, 0, 1080, 700);
+        this.setBounds(0, 0, 1080, 720);
+        this.setBackground(new Color(85, 85, 85));
         setFocusable(true);
     }
 
