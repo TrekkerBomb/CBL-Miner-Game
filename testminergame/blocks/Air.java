@@ -19,7 +19,7 @@ public class Air extends Block {
         this.rockSolid = false;
         this.blockColor = airColor;
         this.health = -1;
-        this.blockPayout = 0;
-        this.blockKey = "Air";    
+        this.blockPayout = 1;
+        this.blockKey = BlockID.AIRID;    
     }
 }

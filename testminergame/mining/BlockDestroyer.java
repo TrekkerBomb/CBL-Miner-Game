@@ -52,7 +52,9 @@ public class BlockDestroyer {
 
             if (map.getBlockMap()[pointInGrid.x][pointInGrid.y].health <= 0) {
                 String bKey = map.getBlockMap()[pointInGrid.x][pointInGrid.y].blockKey;
-                inv.put(bKey, (inv.getValue(bKey) + 1));
+                int bValue = map.getBlockMap()[pointInGrid.x][pointInGrid.y].blockPayout;
+                inv.put(bKey, (inv.getValue(bKey) + bValue));
+                System.out.println("" + inv.getValue(bKey));
                 map.setBlockMap(new Air(new Point(pointInMap.x, pointInMap.y)));
             }
             mInputH.allowDestroy = false;

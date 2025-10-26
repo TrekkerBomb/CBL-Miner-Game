@@ -29,7 +29,7 @@ public class GameManager implements ActionListener {
     private Buttons buttonBar;
     private Buttons buttonBar2;
     private Inventory inventory;
-    //private boolean gVisible;
+    private boolean gVisible;
     private SellMenu sellScreen;
     private RespondButton repBut;
 
@@ -44,8 +44,8 @@ public class GameManager implements ActionListener {
         this.mouseInputH = new MouseInputHandler();
         this.blockDest = new BlockDestroyer();
         this.inventory = new Inventory();
-        //this.gVisible = true;
-        this.sellScreen = new SellMenu();
+        this.gVisible = true;
+        this.sellScreen = new SellMenu(inventory);
 
         this.gameScreen = new GamePanel(currentMap, currentPlayer);
         GameWindow gameWin = new GameWindow();
@@ -79,6 +79,9 @@ public class GameManager implements ActionListener {
         currentPlayer.movePlayer(inputHandler.getMovement());
 
         blockDest.damageBlock(currentMap, currentPlayer, mouseInputH, inventory);
+
+        //this.gVisible = ;
+        //buttonBar.setVisible(this.gVisible);
 
         gameScreen.repaint();
         buttonBar.revalidate();
