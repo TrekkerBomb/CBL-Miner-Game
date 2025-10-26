@@ -8,12 +8,14 @@ import testminergame.MapGame;
  */
 public class Player {
 
-    private Point position = new Point();
-    private int reach = 100;
-    private int width;
-    private int height;
-
+    Point position = MapGame.getStartPoint();
+    int movementSpeed = 10;
+    int jumpspeed = 10;
+    int reach = 100;
+    int width;
+    int height;
     Point damageCenter = new Point(position.x, position.y);
+    boolean activeGravity = true;
 
     /**
      * Draw the player.
@@ -40,20 +42,27 @@ public class Player {
      * Moves the player on the basis of the input.
      * @param input wasd.
      */
-    public void movePlayer(char input) {
+    public void movePlayer(char input, MapGame map) {
 
+        int newXPosition;
+        int newYPosition;
         switch (input) {
-            case 'w': this.position.setLocation(position.x, position.y - 10);
+            case 'w': 
+                newYPosition = position.y - MovementRestrictions.upRestriction(this, map);
+                this.position.setLocation(position.x, newYPosition);
                 break;
-            case 'a': this.position.setLocation(position.x - 10, position.y);
+            case 'a': 
+                newXPosition = position.x - MovementRestrictions.leftRestriction(this, map);
+                this.position.setLocation(newXPosition, position.y);
                 break;
-            case 's': this.position.setLocation(position.x, position.y + 10);
-                break;
-            case 'd': this.position.setLocation(position.x + 10, position.y);
+            case 'd': 
+                newXPosition = position.x + MovementRestrictions.rightRestriction(this, map);
+                this.position.setLocation(newXPosition, position.y);
                 break;
             default:
                 break;
         }
+
         //Move damageCenter after player movement.
         this.damageCenter.setLocation(position.x, position.y - 0.5 * height);
     }
@@ -71,10 +80,12 @@ public class Player {
      */
     public Player() {
 
-        this.position.x = (MapGame.getGridsizeX() * MapGame.getBlockSize()) / 2;
-        this.position.y = height + 200;
-
-        this.height = 3 * MapGame.getBlockSize();
+        this.height = 130;
         this.width = 2 * MapGame.getBlockSize();
+
+        this.position.x = (MapGame.getGridsizeX() * MapGame.getBlockSize()) / 2;
+        this.position.y = height + MapGame.getBlockSize() * (3 + MapGame.getStartDept()) + 20;
+
+
     }
 }

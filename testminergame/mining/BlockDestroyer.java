@@ -42,22 +42,30 @@ public class BlockDestroyer {
         yPosDamageBlock = damageCenter.y + (int) (Math.sin(angle) * reach);
 
         Point pointInGrid = new Point(xPosDamageBlock / blockSize, yPosDamageBlock / blockSize);
+        //It needs to be a round number.
         Point pointInMap = new Point(pointInGrid.x * blockSize, pointInGrid.y * blockSize);
+        //Restriction for i nmap
+        boolean conditionX = pointInGrid.x >= 0 && pointInGrid.x <= (MapGame.getGridsizeX() - 1);
+        boolean conditionY = pointInGrid.y >= 0 && pointInGrid.y <= (MapGame.getGridsizeY() - 1);
 
-        if (mInputH.allowDestroy && mInputH.getMousePoint() != null) {
+        if (conditionX && conditionY) {
 
-            //code to damage the selected block and destroy when health <= 0.
-            map.getBlockMap()[pointInGrid.x][pointInGrid.y].decreaseHealth(this.toolDamage);
-            System.out.println(map.getBlockMap()[pointInGrid.x][pointInGrid.y].health);
+            if (mouseInputH.allowDestroy && mouseInputH.getMousePoint() != null) {
 
-            if (map.getBlockMap()[pointInGrid.x][pointInGrid.y].health <= 0) {
-                String bKey = map.getBlockMap()[pointInGrid.x][pointInGrid.y].blockKey;
-                int bValue = map.getBlockMap()[pointInGrid.x][pointInGrid.y].blockPayout;
-                inv.put(bKey, (inv.getValue(bKey) + bValue));
-                System.out.println("" + inv.getValue(bKey));
-                map.setBlockMap(new Air(new Point(pointInMap.x, pointInMap.y)));
+                //code to damage the selected block and destroy when health <= 0.
+                map.getBlockMap()[pointInGrid.x][pointInGrid.y].decreaseHealth(toolDamage);
+                System.out.println(map.getBlockMap()[pointInGrid.x][pointInGrid.y].health);
+
+                if (map.getBlockMap()[pointInGrid.x][pointInGrid.y].health <= 0) {
+                    String bKey = map.getBlockMap()[pointInGrid.x][pointInGrid.y].blockKey;
+                    int bValue = map.getBlockMap()[pointInGrid.x][pointInGrid.y].blockPayout;
+                    inv.put(bKey, (inv.getValue(bKey) + bValue));  
+                    map.setBlockMap(new Air(new Point(pointInMap.x, pointInMap.y)));
+                }
+                mouseInputH.allowDestroy = false;
             }
-            mInputH.allowDestroy = false;
         }
+
+
     }
 }

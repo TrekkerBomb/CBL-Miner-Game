@@ -7,6 +7,7 @@ import testminergame.mining.BlockDestroyer;
 import testminergame.mining.MouseInputHandler;
 import testminergame.player.Inventory;
 import testminergame.player.KeyInputHandler;
+import testminergame.player.MovementRestrictions;
 import testminergame.player.Player;
 import testminergame.sellmenu.Buttons;
 import testminergame.sellmenu.RespondButton;
@@ -76,8 +77,8 @@ public class GameManager implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        currentPlayer.movePlayer(inputHandler.getMovement());
-
+        currentPlayer.movePlayer(inputHandler.getMovement(), currentMap);
+        MovementRestrictions.gravity(currentPlayer, currentMap);
         blockDest.damageBlock(currentMap, currentPlayer, mouseInputH, inventory);
 
         //this.gVisible = ;
