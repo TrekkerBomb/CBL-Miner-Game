@@ -13,7 +13,7 @@ import testminergame.player.Player;
 public class BlockDestroyer {
 
     // this tooldamage is temporary
-    int toolDamage = 3;
+    int toolDamage = 100;
     
     /**
      * This function deals damage to the block.
@@ -42,18 +42,27 @@ public class BlockDestroyer {
         yPosDamageBlock = damageCenter.y + (int) (Math.sin(angle) * reach);
 
         Point pointInGrid = new Point(xPosDamageBlock / blockSize, yPosDamageBlock / blockSize);
+        //It needs to be a round number.
         Point pointInMap = new Point(pointInGrid.x * blockSize, pointInGrid.y * blockSize);
+        //Restriction for i nmap
+        boolean conditionX = pointInGrid.x >= 0 && pointInGrid.x <= (MapGame.getGridsizeX() - 1);
+        boolean conditionY = pointInGrid.y >= 0 && pointInGrid.y <= (MapGame.getGridsizeY() - 1);
 
-        if (mouseInputH.allowDestroy && mouseInputH.getMousePoint() != null) {
+        if (conditionX && conditionY) {
 
-            //code to damage the selected block and destroy when health <= 0.
-            map.getBlockMap()[pointInGrid.x][pointInGrid.y].decreaseHealth(toolDamage);
-            System.out.println(map.getBlockMap()[pointInGrid.x][pointInGrid.y].health);
+            if (mouseInputH.allowDestroy && mouseInputH.getMousePoint() != null) {
 
-            if (map.getBlockMap()[pointInGrid.x][pointInGrid.y].health <= 0) {
-                map.setBlockMap(new Air(new Point(pointInMap.x, pointInMap.y)));
+                //code to damage the selected block and destroy when health <= 0.
+                map.getBlockMap()[pointInGrid.x][pointInGrid.y].decreaseHealth(toolDamage);
+                System.out.println(map.getBlockMap()[pointInGrid.x][pointInGrid.y].health);
+
+                if (map.getBlockMap()[pointInGrid.x][pointInGrid.y].health <= 0) {
+                    map.setBlockMap(new Air(new Point(pointInMap.x, pointInMap.y)));
+                }
+                mouseInputH.allowDestroy = false;
             }
-            mouseInputH.allowDestroy = false;
         }
+
+
     }
 }
