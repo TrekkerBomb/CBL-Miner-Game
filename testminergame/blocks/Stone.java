@@ -19,7 +19,7 @@ public class Stone extends Block {
         this.rockSolid = true;
         this.blockColor = stoneColor;
         this.health = 3;
-        this.blockPayout = 1;
+        this.blockPayout = 2;
         this.blockKey = BlockID.STONEID;
     }
 }

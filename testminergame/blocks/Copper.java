@@ -19,7 +19,7 @@ public class Copper extends Block {
         this.rockSolid = true;
         this.blockColor = copperColor;
         this.health = 25;
-        this.blockPayout = 5;
+        this.blockPayout = 15;
         this.blockKey = BlockID.COPPERID;
     }
 }

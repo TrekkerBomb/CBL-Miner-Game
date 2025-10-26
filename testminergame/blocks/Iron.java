@@ -19,7 +19,7 @@ public class Iron extends Block {
         this.rockSolid = true;
         this.blockColor = ironColor;
         this.health = 100;
-        this.blockPayout = 10;
+        this.blockPayout = 25;
         this.blockKey = BlockID.IRONID;
     }
 }
