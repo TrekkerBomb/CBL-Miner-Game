@@ -50,7 +50,7 @@ public class BlockDestroyer {
 
         if (conditionX && conditionY) {
 
-            if (mouseInputH.allowDestroy && mouseInputH.getMousePoint() != null) {
+            if (mInputH.allowDestroy && mInputH.getMousePoint() != null) {
 
                 //code to damage the selected block and destroy when health <= 0.
                 map.getBlockMap()[pointInGrid.x][pointInGrid.y].decreaseHealth(toolDamage);
@@ -62,7 +62,7 @@ public class BlockDestroyer {
                     inv.put(bKey, (inv.getValue(bKey) + bValue));  
                     map.setBlockMap(new Air(new Point(pointInMap.x, pointInMap.y)));
                 }
-                mouseInputH.allowDestroy = false;
+                mInputH.allowDestroy = false;
             }
         }
 
