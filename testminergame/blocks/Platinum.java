@@ -8,7 +8,7 @@ import testminergame.Block;
  * Subclass of Block to define Platinum Blocks.
  */
 public class Platinum extends Block {
-    Color platinumColor = new Color(0, 255, 255);
+    Color platinumColor = new Color(200, 255, 255);
 
     /**
      * Contructor for Platinum subclass.
@@ -18,7 +18,8 @@ public class Platinum extends Block {
         this.position = position;
         this.rockSolid = true;
         this.blockColor = platinumColor;
-        this.health = 25;
+        this.health = 500;
         this.blockPayout = 100;
+        this.blockKey = BlockID.PLATINUMID;
     }
 }

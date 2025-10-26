@@ -15,6 +15,7 @@ public class Block {
     public Color blockColor;
     public boolean rockSolid;
     public int blockPayout;
+    public String blockKey;
   
     public void decreaseHealth(int damage) {
         this.health = health -= damage;

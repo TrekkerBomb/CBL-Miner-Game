@@ -18,9 +18,9 @@ public class GamePanel extends JPanel {
      * @param currentPlayer the player.
      */
     public GamePanel(MapGame currentMap, Player currentPlayer) {
-        
         this.currentMap = currentMap;
         this.currentPlayer = currentPlayer;
+        this.setBounds(0, 0, 1080, 700);
         setFocusable(true);
     }
 

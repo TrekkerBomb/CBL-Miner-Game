@@ -20,5 +20,6 @@ public class Stone extends Block {
         this.blockColor = stoneColor;
         this.health = 3;
         this.blockPayout = 1;
+        this.blockKey = BlockID.STONEID;
     }
 }

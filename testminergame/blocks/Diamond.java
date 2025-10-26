@@ -18,7 +18,8 @@ public class Diamond extends Block {
         this.position = position;
         this.rockSolid = true;
         this.blockColor = diamondColor;
-        this.health = 15;
+        this.health = 300;
         this.blockPayout = 500;
+        this.blockKey = BlockID.DIAMONDID;
     }
 }

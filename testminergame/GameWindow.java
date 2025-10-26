@@ -9,20 +9,28 @@ import javax.swing.*;
 public class GameWindow {
 
     JFrame gameWindow;
-    GamePanel gameScreen;
+    public JPanel gamePanel;
     
     /**
      * makes the GUI and the window.
      */
-    public GameWindow(GamePanel gameScreen) {
-        this.gameScreen = gameScreen;
-        gameWindow = new JFrame("Game Window");
-        gameWindow.add(gameScreen); 
+    public GameWindow() {
+        gamePanel = new JPanel();
+        gamePanel.setBounds(0, 0, 0, 0); 
+        gameWindow = new JFrame("Game Window"); 
         gameWindow.setSize(1080, 720);
         gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        gameWindow.add(gamePanel);
         gameWindow.setVisible(true);
-        gameScreen.requestFocusInWindow();
-               
+        gamePanel.setVisible(false);
+    }
+
+    /**
+     * Adds elements to the frame.
+     */
+    void integratePanel(JPanel newPanel) {
+        gameWindow.add(newPanel);
+        newPanel.setVisible(true);
+        newPanel.requestFocusInWindow();
     }
 }
